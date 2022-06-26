@@ -1,0 +1,15 @@
+[Unit]
+Description=ANAPI Server
+After=network.target
+
+[Service]
+ExecStart=npm start
+ExecStop=pkill -cef "sh -c nodemon api_server.js"
+User=root
+WorkingDirectory=/home/pi/actions-runner/_work/ants-cs470/ants-cs470/cs470api
+KillMode=mixed
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,92 @@
+import axios from 'axios';
+// Indicate to the API that all requests for this app are AJAX
+axios.defaults.headers.common["X-Requested-With"]="XMLHttpRequest";
+axios.defaults.headers.common["Access-Control-Allow-Origin"]="https://nicbomb.mynetgear.com";
+// Set the baseURL for all requests to the API domain instead of the current domain
+// axios.defaults.baseURL = `http://localhost:8443/api/v1`;
+axios.defaults.baseURL=`https://nicbomb.mynetgear.com:42069/api/v1`;
+// Allow the browser to send cookies to the API domain (which include auth_token)
+axios.defaults.withCredentials=true;
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf_token;
+export default class APIInterface{
+    login=async(uName,uPass)=>axios
+        .post("login/",[uName,uPass])
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketTemplate=async()=>axios
+        .get("ticket/Template")
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketUpdate=async(ticket)=>axios
+        .post("ticket/Update", ticket)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketCreate=async(ticket)=>axios
+        .post("ticket/Create",ticket)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketuNumb=async(uNumb)=>axios
+        .get(`ticket/uNumb/${uNumb}`)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketAdminuNumb=async(AdminuNumb)=>axios
+        .get(`ticket/AdminuNumb/${AdminuNumb}`)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    ticketID=async(ID)=>axios
+        .get(`ticket/ID/${ID}`)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    templates=async()=>axios
+        .get("template/")
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    templateUpdate=async(description,name)=>axios
+        .post("template/Update",[description,name])
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    templateCreate=async(name,description)=>axios
+        .post("template/Create",[name,description])
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    adminRequests=async()=>axios
+        .get("admin/Requests")
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    adminAccept=async(user)=>axios
+        .post("admin/Accept",user)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    adminReject=async(user)=>axios
+        .post("admin/Reject",user)
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    userTemplate=async()=>axios
+        .get("user/Template")
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    userCreate=async(user)=>axios
+        .post("user/Create",Object.values(user))
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+    userTest=async(user)=>axios
+        .post("user/Test",{test:true,user:user})
+        .then(response=>response.data)
+        .catch(error=>console.log(error))
+    ;
+};

@@ -1,0 +1,30 @@
+{
+  "name": "ANAPI",
+  "version": "1.0.0",
+  "description": "NodeAPI server for the ANTS react-app",
+  "main": "api_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exitcrash api_server.js 2>&1 | tee api_server.log"
+  },
+  "author": "NicBOMB",
+  "dependencies": {
+    "csrf": "^3.0.6",
+    "dateformat": "^3.0.3",
+    "dotenv": "^4.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "kcors": "^2.2.1",
+    "knex": "^1.0.5",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-bunyan-logger": "^2.0.0",
+    "koa-compress": "^2.0.0",
+    "koa-jwt": "^3.3.2",
+    "koa-router": "^7.3.0",
+    "lodash": "^4.17.4",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
