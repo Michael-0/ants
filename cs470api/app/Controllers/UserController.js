@@ -3,24 +3,6 @@ const dbConnectionPool=require('../../database/mySQLconnect');
 class UserController{
     constructor(){console.log("Constructor of UserController is called.");};
     Create=async(ctx)=>new Promise((resolve,reject)=>{
-        // let values;
-        // if (ctx.request.body &&
-        //     ctx.request.body?.user &&
-        //     typeof(ctx.request.body.user)==="Object"
-        // ){
-        //     values=Object.values(ctx.request.body.user);
-        //     if(values.length<8){
-        //         ctx.body=ctx.request.body;
-        //         ctx.status=400;
-        //         console.log("Fewer inputs than required were detected.");
-        //         return reject("Fewer inputs than required were detected.");
-        //     } else if (values.length>8){
-        //         ctx.body=ctx.request.body;
-        //         ctx.status=400;
-        //         console.log("More inputs than required were detected.");
-        //         return reject("More inputs than required were detected.");
-        //     }
-        // }
         dbConnectionPool.getConnection((err,dbConnection)=>{
             if(err){
                 ctx.body=undefined;

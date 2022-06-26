@@ -1,5 +1,4 @@
 import {Fragment, useContext, useEffect, useState} from "react";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
@@ -9,7 +8,6 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import BoxStyleVariants from "../../Styles/BoxStyles";
 import SaveIcon from '@mui/icons-material/Save';
-import Typography from "@mui/material/Typography";
 import {UserContext} from '../../Main';
 import API from "../../API_Interface/API_Interface";
 
@@ -27,7 +25,6 @@ export default function TicketCreation(props){
     const [ticketCategory,setTicketCategory] = useState(ticket.tCategory);
     const [ticketTemplate,setTicketTemplate] = useState('');
     const [ticketDescription,setTicketDescription] = useState(undefined);
-    const [assignedAgent,setAssignedAgent] = useState(undefined);
 
     const [updatedTicket,setUpdatedTicket] = useState(undefined);
 
@@ -38,8 +35,6 @@ export default function TicketCreation(props){
 
 
     useEffect(()=>{
-
-        //straight outa the childrens school at SSU
         if(templates !== ''){
             for(let index = 0; index < templates.length;index++){
                 if(ticket.tTemplate === templates[index].name){

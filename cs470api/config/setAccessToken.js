@@ -1,6 +1,4 @@
 module.exports=(ctx, user)=>{
-    //console.log('setAccessToken:: cookie = ', ctx.cookies.get('access_token'));
-    //console.log('setAccessToken:: ctx.state contains', ctx.state);
     const exp_date=Date.now()+(20 * 60 * 1000); // expiration date 20 minutes from now
     // Set the data that will be sent in the user's access_token. The exp setting should probably
     // be set slightly ahead of the cookie's expiration date that stores it so that we can be

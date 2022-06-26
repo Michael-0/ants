@@ -1,11 +1,8 @@
 import React, {useState, useEffect, Fragment} from "react";
 import API from "./API_Interface/API_Interface";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActionArea from '@mui/material/CardActionArea';
 import TextField from "@mui/material/TextField";
 import Typography from '@mui/material/Typography';
 import BoxStyleVariants from "./Styles/BoxStyles";

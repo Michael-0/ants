@@ -6,12 +6,8 @@ import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import TextField from "@mui/material/TextField";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
 import BoxStyleVariants from '../../Styles/BoxStyles';
 import API from "../../API_Interface/API_Interface";
-import {Input} from "@mui/material";
-import {Label} from "@mui/icons-material";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
@@ -27,7 +23,6 @@ export default function AccountCreation(props){
     const[APIready,setAPIready]=useState(true);
     const[refreshUserTemplate,setRefreshUserTemplate]=useState(true);
     const[template,setTemplate]=useState(undefined);
-    // const [level, setLevel] = useState("User");
     useEffect(()=>{
         if(APIready){
             if(refreshUserTemplate){
@@ -45,25 +40,7 @@ export default function AccountCreation(props){
                     return()=>{noLeak=false;};
                 })();
             } else if(testCreate){
-                /*setTestCreate(false);
-                (async(user)=>{
-                    let noLeak=true;
-                    api.testUser(user).then((response)=>{
-                        console.log(response);
-                        if(noLeak){
-                            setTestCreate(response);
-                            setAPIready(true);
-                        }
-                    });
-                    return()=>{noLeak=false;};
-                })();*/
-            } else if(testCreate){
                 setTestCreate(false);
-                /*<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                    This is a success message!
-                </Alert>
-                </Snackbar>*/
             } else if(attemptCreate){
                 setAPIready(false);
                 setAttemptCreate(false);
@@ -113,7 +90,6 @@ export default function AccountCreation(props){
                     Level
                     </InputLabel>
                     <Select {...v} defaultValue={"user"}
-                            // onChange={()=>uTypeChangeHandler(document.getElementById(v.id).innerText)}
                     >
                         <MenuItem onClick={()=>{setAdmin(false)}}
                             value="user"
@@ -172,37 +148,5 @@ export default function AccountCreation(props){
                 </Button>
             </Grid>
         </Grid>
-        {/*
-        <Grid container
-        direction="row"
-        justifyContent="center"
-        >
-            <Grid item
-            xs={6}
-            >
-                <List disabled
-                dense={true}
-                >
-                {specialties?.reduce((p,v,i,a)=>{
-                    p.push(
-                    <ListItem
-                    key={i}
-                    sx={{
-                        display: (admin ? 'block' : 'none'),
-                        textAlign: "center",
-                    }}
-                    >
-                        <FormControlLabel
-                        control={<Checkbox id={v}/>}
-                        label={v}
-                        sx={{...BoxStyleVariants.CheckBoxes}}
-                        />
-                    </ListItem>);
-                    return p;
-                }, [])}
-                </List>
-            </Grid>
-        </Grid>
-        */}
     </Fragment>;
 };

@@ -1,6 +1,5 @@
 import {Fragment, useState, useEffect} from "react";
 
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
@@ -9,7 +8,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 
-import BoxStyleVariants from '../../Styles/BoxStyles';
 import API from "../../API_Interface/API_Interface";
 
 export default function TicketTemplateCreation(props){
@@ -72,10 +70,8 @@ export default function TicketTemplateCreation(props){
 
     function createTicketTemplateHandler(){
         if (APIawait){return;}
-        // setAPIawait(true);
         let newTemplate = document.getElementById("NewTemplate").value;
         let template = document.getElementById("Template").innerText;
-        let description = document.getElementById("Description").value;
         if (template !== "Create New Template"){
             // API call to update existing template
             setAttemptUpdate(true);
@@ -111,7 +107,7 @@ export default function TicketTemplateCreation(props){
                 label="New Template"
                 disabled={selectorState.name !== "Create New Template"}
                 sx={{
-                    width: 1// display: selectorState.name === "Create New Template" ? "block" : "none",
+                    width: 1
                 }}
                 />
             </Grid>

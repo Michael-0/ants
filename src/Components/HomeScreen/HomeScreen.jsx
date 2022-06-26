@@ -1,18 +1,12 @@
 import {createContext, Fragment, useContext, useEffect, useState} from "react";
 import API from "../../API_Interface/API_Interface";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import EditIcon from '@mui/icons-material/Edit';
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import BoxStyleVariants from "../../Styles/BoxStyles";
 import {UserContext/*, SetUserContext*/} from "../../Main";
 import TicketCreation from "../TicketCreation/TicketCreation";
 import TicketEditor from "../TicketEditor/TicketEditor";
@@ -24,12 +18,10 @@ const SetRefreshUserTicketContext = createContext();
 
 export default function HomeScreen(){
     const user=useContext(UserContext);
-    //const setUser=useContext(SetUserContext);
     const[refreshUserTickets,setRefreshUserTickets]=useState(true);
     const[userTickets,setUserTickets]=useState(undefined);
     const[ticketView,setTicketView]=useState(true);
     const[selectedTicket,setSelectedTicket]=useState(undefined);
-    const[defaultForTemplate,setDefaultForTemplate]=useState("");
     const[attemptCreate,setAttemptCreate]=useState(false);
     const[APIready,setAPIready]=useState(true);
     const[refreshTicketTemplate,setRefreshTicketTemplate]=useState(true);
@@ -64,9 +56,6 @@ export default function HomeScreen(){
                             .then((response)=>{
                                 if(noLeak){
                                     setAdminTickets(response);
-                                    /*if(!selectedTicket && response.length > 0){
-                                        setSelectedTicket(response[0]);
-                                    }*/
                                     setAPIready(true);
                                 }
                             });
@@ -80,9 +69,6 @@ export default function HomeScreen(){
                     .then((response)=>{
                         if(noLeak){
                             setUserTickets(response);
-                            /*if(!selectedTicket && response.length > 0){
-                                setSelectedTicket(response[0]);
-                            }*/
                             setAPIready(true);
                         }
                     });

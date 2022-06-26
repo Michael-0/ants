@@ -143,24 +143,6 @@ class TicketController{
         }
     }));
     Create=async(ctx)=>new Promise((resolve,reject)=>{
-        // let values;
-        // if (ctx.request.body &&
-        //     ctx.request.body?.ticket &&
-        //     typeof(ctx.request.body.ticket)==="Object"
-        // ){
-        //     values=Object.values(ctx.request.body.ticket);
-        //     if(values.length<5){
-        //         ctx.body=ctx.request.body;
-        //         ctx.status=400;
-        //         console.log("Fewer inputs than required were detected.");
-        //         return reject("Fewer inputs than required were detected.");
-        //     } else if (values.length>5){
-        //         ctx.body=ctx.request.body;
-        //         ctx.status=400;
-        //         console.log("More inputs than required were detected.");
-        //         return reject("More inputs than required were detected.");
-        //     }
-        // }
         dbConnectionPool.getConnection((err,dbConnection)=>{
             if(err){
                 ctx.body=undefined;

@@ -1,5 +1,4 @@
 import {Fragment, useContext, useEffect, useState} from "react";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
@@ -22,7 +21,6 @@ export default function TicketCreation(props){
     const [ticketCategory,setTicketCategory] = useState(undefined);
     const [ticketTemplate,setTicketTemplate] = useState(undefined);
     const [ticketDescription,setTicketDescription] = useState(undefined);
-    const [assignedAgent,setAssignedAgent] = useState(undefined);
 
     const [finalTicket,setFinalTicket] = useState(undefined);
 

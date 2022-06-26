@@ -3,11 +3,9 @@ import axios from 'axios';
 axios.defaults.headers.common["X-Requested-With"]="XMLHttpRequest";
 axios.defaults.headers.common["Access-Control-Allow-Origin"]="https://nicbomb.mynetgear.com";
 // Set the baseURL for all requests to the API domain instead of the current domain
-// axios.defaults.baseURL = `http://localhost:8443/api/v1`;
 axios.defaults.baseURL=`https://nicbomb.mynetgear.com:42069/api/v1`;
 // Allow the browser to send cookies to the API domain (which include auth_token)
 axios.defaults.withCredentials=true;
-// axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf_token;
 export default class APIInterface{
     login=async(uName,uPass)=>axios
         .post("login/",[uName,uPass])

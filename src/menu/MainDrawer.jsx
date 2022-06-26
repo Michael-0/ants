@@ -1,13 +1,10 @@
 import {Fragment,useState,useContext} from 'react';
 import {styled,useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Button from "@mui/material/Button";
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid';
@@ -255,7 +252,6 @@ const findSelectedComponent=(selectedItem)=>{
     const component=[
         ...presentationComponents(),
     ].find(comp=>comp.title === selectedItem);
-    //console.log(`Searching for selected component in MakeEligible got ${component}`);
     return component ? component : {
         title: null,
         component: null
